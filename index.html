@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VIBE | Music Player</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="bg-blob blob-1"></div>
+  <div class="bg-blob blob-2"></div>
+  <div class="bg-blob blob-3"></div>
+  <div class="bg-blob blob-4"></div>
+
+  <div class="player-wrapper">
+    <div class="player-card" id="playerCard">
+
+      <!-- Album Art -->
+      <div class="album-art-container">
+        <div class="album-art">
+          <span class="album-art-inner" id="albumIcon">🎵</span>
+          <div class="equalizer-overlay">
+            <div class="eq-bar"></div><div class="eq-bar"></div><div class="eq-bar"></div>
+            <div class="eq-bar"></div><div class="eq-bar"></div><div class="eq-bar"></div>
+            <div class="eq-bar"></div><div class="eq-bar"></div><div class="eq-bar"></div>
+            <div class="eq-bar"></div><div class="eq-bar"></div><div class="eq-bar"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Track Info -->
+      <div class="track-info">
+        <h5 class="track-title" id="trackTitle">No Track Selected</h5>
+        <p class="track-artist" id="trackArtist">Add music to get started</p>
+      </div>
+
+      <!-- Progress -->
+      <div class="progress-container">
+        <div class="progress-time">
+          <span id="currentTime">0:00</span>
+          <span id="totalTime">0:00</span>
+        </div>
+        <div class="progress" id="progressBarWrapper">
+          <div class="progress-bar" id="progressBar" style="width: 0%;"></div>
+        </div>
+      </div>
+
+      <!-- Controls -->
+      <div class="controls-row">
+        <button class="ctrl-btn" id="shuffleBtn"><i class="bi bi-shuffle"></i></button>
+        <button class="ctrl-btn" id="prevBtn"><i class="bi bi-skip-backward-fill"></i></button>
+        <button class="ctrl-btn btn-play" id="playBtn"><i class="bi bi-play-fill" id="playIcon"></i></button>
+        <button class="ctrl-btn" id="nextBtn"><i class="bi bi-skip-forward-fill"></i></button>
+        <button class="ctrl-btn" id="repeatBtn"><i class="bi bi-repeat"></i></button>
+      </div>
+
+      <!-- Volume -->
+      <div class="volume-section">
+        <i class="bi bi-volume-up-fill volume-icon" id="volumeIcon"></i>
+        <input type="range" class="volume-slider" id="volumeSlider" min="0" max="100" value="75">
+      </div>
+
+      <!-- Add Music by URL -->
+      <div class="section-label">➕ Add Music by URL</div>
+      <div class="url-input-group">
+        <input type="text" id="urlInput" placeholder="Paste MP3/WAV/OGG link...">
+        <button class="btn-sm btn-add" id="addUrlBtn"><i class="bi bi-plus-lg"></i> Add</button>
+      </div>
+      <div class="url-input-group">
+        <input type="text" id="songTitleInput" placeholder="Song title (optional)">
+        <input type="text" id="songArtistInput" placeholder="Artist (optional)">
+      </div>
+      <button class="btn-sm btn-clear" id="clearAllBtn"><i class="bi bi-trash"></i> Remove All Tracks</button>
+
+      <!-- Upload Local Files -->
+      <div class="section-label">📁 Upload from Device</div>
+      <div style="border:2px dashed rgba(255,255,255,0.15);border-radius:10px;padding:1rem;text-align:center;cursor:pointer;transition:all 0.3s;" id="uploadArea">
+        <i class="bi bi-cloud-upload-fill" style="font-size:1.5rem;color:var(--accent-2);"></i><br>
+        <span style="color:var(--text-secondary);font-size:0.75rem;">Click or drag & drop files</span>
+        <input type="file" id="fileInput" accept="audio/*" multiple style="display:none;">
+      </div>
+
+      <!-- Playlist -->
+      <div class="section-label">🎧 Playlist <span id="trackCount" style="font-weight:400;">(0 tracks)</span></div>
+      <div class="playlist-section" id="playlistContainer">
+        <div style="color:var(--text-secondary);text-align:center;padding:1rem;font-size:0.8rem;">
+          No songs in playlist
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div class="toast" id="toast"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script src="script.js">
+    
+  </script>
+</body>
+</html>
